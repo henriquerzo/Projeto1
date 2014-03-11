@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -9,12 +10,20 @@
   <link rel="shortcut icon" href="../../assets/ico/favicon.ico">
 
   <link   href="css/bootstrap.min.css" rel="stylesheet">
-  <script src="js/bootstrap.min.js"></script>
-  <script src="database.php"></script>
+  <link   href="css/home.css" rel="stylesheet">
+
+  <script type="text/javascript" language="javascript" src="js/jquery.js"></script>
+  <script type="text/javascript" language="javascript" src="js/jquery.dataTables.js"></script> 
+
+  <script type="text/javascript" src="js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="js/bootstrap.js"></script>
+  
+  <script type="text/javascript" language="javascript" src="controller/home_controller.js"></script>
+  <script type="text/javascript" language="javascript" src="view/home_view.js"></script>
   <title>Gerenciador de Processos</title>
 </head>
 
-<body>
+<body onload="run_search_processos_usuario()">
   <!-- Menu topo -->
   <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
     <div class="container">
@@ -25,7 +34,7 @@
           <li><a href="#contact">Contato</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
-          <li><a href="../navbar-fixed-top/">Sair</a></li>
+          <li><a href="controller/logout.php">Sair</a></li>
         </ul>
       </div><!--/.nav-collapse -->
     </div>
@@ -49,7 +58,7 @@
        <a href="#" class="btn btn-warning">Atualizar Processos</a>
      </form>
      <form class="navbar-form navbar-right">
-      <input type="text" class="form-control" placeholder="Pesquisar...">
+      <input type="text" class="form-control" placeholder="Pesquisar..." id="seach_field">
       <a href="create.php" class="btn btn-success">+ Adicionar Processo</a>
     </form>
   </div>
@@ -58,40 +67,8 @@
   <div class="container">
     <!-- Lista de processos -->
     <div class="container">
-      <div class="row">
-        <table class="table table-striped table-bordered">
-          <thead>
-            <tr>                
-              <th>Processo</th>
-              <th>Tribunal</th>
-              <th>Situação</th>
-              <th>Cliente</th>
-              <th>Ações</th>
-            </tr>
-          </thead>
-          <tbody>
-            <?php
-            include 'database.php';
-            $pdo = Database::connect();
-            $sql = 'SELECT * FROM processos ORDER BY id';
-            foreach ($pdo->query($sql) as $row) {
-              echo '<tr>';
-              echo '<td>'. $row['numeroProcesso'] . '</td>';
-              echo '<td>'. $row['tribunal'] . '</td>';
-              echo '<td>'. $row['situacao'] . '</td>';
-              echo '<td>'. $row['cliente'] . '</td>';
-              echo '<td width=250>';
-              echo '<a class="btn btn-info btn-xs" href="#">Detalhes</a>';
-              echo ' ';
-              echo '<a class="btn btn-primary btn-xs" href="#">Editar</a>';
-              echo ' ';
-              echo '<a class="btn btn-danger btn-xs" href="delete.php?id='.$row['id'].'">Deletar</a>';
-              echo '</td>';
-              echo '</tr>';
-            }
-            Database::disconnect();
-            ?>
-          </tbody>
+      <div id="tabela_processos_usuario" class="row">  
+          <table class="table table-striped table-bordered" cellpadding="0" cellspacing="0" border="0" class="display" id="tab_processos" width="100%">  
         </table>
       </div>
     </div> <!-- /container -->
@@ -106,11 +83,13 @@
 </div>
 
 
+
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-    <script src="../../dist/js/bootstrap.min.js"></script>
-
+    
+    
+    
 
   </body></html>
+ 

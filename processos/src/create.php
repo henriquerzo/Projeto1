@@ -10,7 +10,7 @@
 
   <link   href="css/bootstrap.min.css" rel="stylesheet">
   <script src="js/bootstrap.min.js"></script>
-  <script src="database.php"></script>
+  <script src="model/database.php"></script>
   <title>Gerenciador de Processos</title>
 </head>
  
@@ -18,7 +18,7 @@
 
   <?php
      
-    require 'database.php';
+    require 'model/database.php';
  
     if ( !empty($_POST)) {
         // keep track validation errors

@@ -1,0 +1,5 @@
+Problemas encontrados com pull dos tribunais
+- STJ('Object moved').
+- A pesquisa feita no TRE tem que ser pelo numero do procotolo junto com o ano.
+- No TRF 2 regiao a pesquisa é feita com o numero do protocolo retirando todos os caracteres especiais.
+- Lembrar de formatar os nomes das fases.
