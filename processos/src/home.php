@@ -68,7 +68,7 @@
     <!-- Lista de processos -->
     <div class="container">
       <div id="tabela_processos_usuario" class="row">  
-          <table class="table table-striped table-bordered" cellpadding="0" cellspacing="0" border="0" class="display" id="tab_processos" width="100%">  
+          <table class="table table-striped table-bordered pretty" cellpadding="0" cellspacing="0" border="0" class="display" id="tab_processos" width="100%">  
         </table>
       </div>
     </div> <!-- /container -->
