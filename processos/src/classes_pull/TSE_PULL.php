@@ -41,7 +41,8 @@ class TSE_PULL extends ABSTRACT_PULL{
 		$nomes = $this->match_all_between($resultadoHTML,$this->delimitador_inicio_campo_fases,$this->delimitador_fim_campo_fases);
 		$datas = $this->match_all_between($resultadoHTML,$this->delimitador_inicio_horarios,$this->delimitador_fim_horarios);
 		for ($i=0; $i < count($nomes) ; $i++) {
-			$fase = new Fase($datas[$i],$nomes[$i]); 
+			$nomes = trim($nomes[$i]);
+			$fase = new Fase($datas[$i],$nomes); 
 			array_push($this->lista_fases,$fase);
 		}
 	}

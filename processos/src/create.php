@@ -16,47 +16,7 @@
  
 <body>
 
-  <?php
-     
-    require 'model/database.php';
- 
-    if ( !empty($_POST)) {
-        // keep track validation errors
-        $numeroProcessoError = null;
-        $clienteError = null;
-         
-        // keep track post values
-        $numeroProcesso = $_POST['numeroProcesso'];
-        $tribunal = $_POST['tribunal'];
-        //$situacao = $_POST['situacao'];
-        $cliente = $_POST['cliente'];
-        $observacoes = $_POST['observacoes'];
-         
-        // validate input
-        $valid = true;
-        if (empty($numeroProcesso)) {
-            $numeroProcessoError = 'É preciso adicionar um número de processo';
-            $valid = false;
-        }
-
-        $valid = true;
-        if (empty($cliente)) {
-            $clienteError = 'É preciso adicionar um cliente';
-            $valid = false;
-        }
-         
-        // insert data
-        if ($valid) {
-            $pdo = Database::connect();
-            $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-            $sql = "INSERT INTO processos (numeroProcesso, tribunal, situacao, cliente, observacoes) values(?, ?, ?, ?, ?)";
-            $q = $pdo->prepare($sql);
-            $q->execute(array($numeroProcesso, $tribunal, "Atualizando...", $cliente, $observacoes));
-            Database::disconnect();
-            header("Location: home.php");
-        }
-    }
-?>
+  
 
 <!-- Menu topo -->
   <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
@@ -88,7 +48,7 @@
      
      <div class="row">
     <div class="col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3">
-    <form role="form" action="create.php" method="post">
+    <form role="form" action="model/model_salva_processo.php" method="post">
       <h2>Registre um novo processo</h2>
       <hr class="colorgraph">
       <div class="row">
