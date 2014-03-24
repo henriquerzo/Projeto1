@@ -31,10 +31,10 @@
         <ul class="nav navbar-nav">
           <li class="active"><a href="home.php">Home</a></li>
           <li><a href="#about">Sobre</a></li>
-          <li><a href="#contact">Contato</a></li>
+          <li><a href="contato/feedbackMail.php">Contato</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
-          <li><a href="controller/logout.php">Sair</a></li>
+          <li><a href="logout.php">Sair</a></li>
         </ul>
       </div><!--/.nav-collapse -->
     </div>
@@ -55,7 +55,7 @@
     <!-- Botoes de pesquisar e cadastrar -->
     <div class="page-header container theme-showcase">
       <form class="navbar-form navbar-left">
-       <a href="#" class="btn btn-warning">Atualizar Processos</a>
+       <a href="sendMail.php" class="btn btn-warning">Atualizar Processos</a>
      </form>
      <form class="navbar-form navbar-right">
       <input type="text" class="form-control" placeholder="Pesquisar..." id="seach_field">

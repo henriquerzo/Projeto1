@@ -21,7 +21,7 @@
         <ul class="nav navbar-nav">
           <li class="active"><a href="home.php">Home</a></li>
           <li><a href="#about">Sobre</a></li>
-          <li><a href="#contact">Contato</a></li>
+          <li><a href="contato/feedbackMail.php">Contato</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
           <li><a href="../../control/logout.php">Sair</a></li>
