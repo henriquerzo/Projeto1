@@ -22,7 +22,7 @@
     }
         
  
- echo $situacao;    
+ echo utf8_encode($situacao);    
         
         
     }

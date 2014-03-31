@@ -30,7 +30,8 @@
        + '<td>' + row['situacao'] + '</td>'
        + '<td>' + row['cliente'] + '</td>'
        + '<td width=250>'
-       + '<a class="btn btn-warning btn-xs" href="model/model_atualiza_processo.php.php?numeroProcesso=' + row['numeroProcesso'] + '&tribunal=' + row['tribunal'] + '">Atualizar</a>'
+       + '<button class="btn btn-info btn-xs" onClick="atualiza_processo(' + row['numeroProcesso']
+       + ',' + "'" + row['tribunal'] + "'" + ","+ "'" + row['situacao'] + "'" +');">Atualizar</button>'
        + ' '
        + '<a class="btn btn-info btn-xs" href="detalhes.php?numeroProcesso=' + row['numeroProcesso'] + '">Detalhes</a>'
        + ' '
@@ -63,4 +64,10 @@
   jQuery.fn.dataTableExt.oSort['string-case-desc'] = function(x,y) {
     return ((x < y) ?  1 : ((x > y) ? -1 : 0));
   };
+}
+
+function show_data_ultima_atualizacao(data_atualizacao){
+
+  $("#data_ultima_atualizacao").html("Ultima atualização: " + data_atualizacao[0]);
+  return false;
 }
