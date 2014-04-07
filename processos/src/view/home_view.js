@@ -30,17 +30,17 @@
        + '<td>' + row['situacao'] + '</td>'
        + '<td>' + row['cliente'] + '</td>'
        + '<td width=250>'
-       + '<button class="btn btn-info btn-xs" onClick="atualiza_processo(' + row['numeroProcesso']
-       + ',' + "'" + row['tribunal'] + "'" + ","+ "'" + row['situacao'] + "'" +');">Atualizar</button>'
-       + ' '
-       + '<a class="btn btn-info btn-xs" href="detalhes.php?numeroProcesso=' + row['numeroProcesso'] + '">Detalhes</a>'
-       + ' '
-       + '<a class="btn btn-primary btn-xs" href="#">Editar</a>'
-       + ' '
-       + '<a class="btn btn-danger btn-xs" href="delete.php?id=' + row['id'] + '">Deletar</a>'
-       + '</td>'
-       + '</tr>'
-       );
+       + '<button class="btn btn-warning btn-xs" onClick="atualiza_processo(' + row['numeroProcesso']
+         + ',' + "'" + row['tribunal'] + "'" + ","+ "'" + row['situacao'] + "'" +');">Atualizar</button>'
+     + ' '
+     + '<a class="btn btn-info btn-xs" href="detalhes.php?numeroProcesso=' + row['numeroProcesso'] + '">Detalhes</a>'
+     + ' '
+     + '<a class="btn btn-primary btn-xs" href="update.php?id=' + row['id'] + '">Editar</a>'
+     + ' '
+     + '<a class="btn btn-danger btn-xs" onClick="deleteConfirmation(' + row['id'] + ')">Deletar</a>'
+     + '</td>'
+     + '</tr>'
+     );
    }
    //Implementa Search and Sort
    var oTable = $('#tab_processos').dataTable({
@@ -70,4 +70,17 @@ function show_data_ultima_atualizacao(data_atualizacao){
 
   $("#data_ultima_atualizacao").html("Ultima atualização: " + data_atualizacao[0]);
   return false;
+}
+
+function deleteConfirmation(id){
+  var x;
+  var r=confirm("Você tem certeza que deseja excluir o processo?");
+  if (r==true) {
+    $.ajax({
+      type: "POST",
+      url: "delete.php",
+      data: { id: id}
+    })
+    location.reload();
+  }
 }

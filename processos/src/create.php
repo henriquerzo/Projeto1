@@ -8,17 +8,19 @@
   <meta name="author" content="">
   <link rel="shortcut icon" href="../../assets/ico/favicon.ico">
 
+    <script type="text/javascript" language="javascript" src="js/jquery.js"></script>
+
   <link   href="css/bootstrap.min.css" rel="stylesheet">
   <script src="js/bootstrap.min.js"></script>
   <script src="model/database.php"></script>
   <title>Gerenciador de Processos</title>
 </head>
- 
+
 <body>
 
   
 
-<!-- Menu topo -->
+  <!-- Menu topo -->
   <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
     <div class="container">
       <div class="navbar-collapse collapse">
@@ -35,7 +37,7 @@
   </div>
 
 
-    <!-- Logo -->
+  <!-- Logo -->
   <div class="jumbotron">
     <div class="container">
       <h1>Gerenciador de Processos</h1>
@@ -45,29 +47,29 @@
 
 
   <div class="container theme-showcase" role="main">
-     
-     <div class="row">
+   
+   <div class="row">
     <div class="col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3">
-    <form role="form" action="model/model_salva_processo.php" method="post">
-      <h2>Registre um novo processo</h2>
-      <hr class="colorgraph">
-      <div class="row">
+      <form role="form" action="model/model_salva_processo.php" method="post">
+        <h2>Registre um novo processo</h2>
+        <hr class="colorgraph">
+        <div class="row">
 
-        <div class="col-xs-12 col-sm-6 col-md-6">
-          <div class="form-group">
+          <div class="col-xs-12 col-sm-6 col-md-6">
+            <div class="form-group">
               <input type="text" name="numeroProcesso" id="numeroProcesso" class="form-control input-lg" placeholder="Número do Processo" tabindex="1" value="<?php echo !empty($name)?$name:'';?>">
-                            <?php if (!empty($nameError)): ?>
-                                <span class="help-inline"><?php echo $nameError;?></span>
-                            <?php endif; ?>
+              <?php if (!empty($nameError)): ?>
+              <span class="help-inline"><?php echo $nameError;?></span>
+            <?php endif; ?>
           </div>
         </div>
 
         <div class="col-xs-12 col-sm-6 col-md-6">
           <div class="form-group">
             <select name="tribunal" type="text" id="tribunal_selected" class="form-control input-lg" placeholder="Número do Processo" tabindex="2">
-                <option value="T. Superior Eleitoral" selected="true">T. Superior Eleitoral</option>
-                <option>T. Regional Eleitoral</option>
-                <option>T. Superior Federal</option>
+              <option value="T. Superior Eleitoral" selected="true">T. Superior Eleitoral</option>
+              <option>T. Regional Eleitoral</option>
+              <option>T. Superior Federal</option>
             </select>
           </div>
         </div>
@@ -87,10 +89,16 @@
         <div class="col-xs-12 col-md-6"><button type="submit" class="btn btn-success btn-block btn-lg">Registrar</button></div>
       </div>
     </form>
+    <hr>
+
+    <footer>
+      <p>© UFCG 2014</p>
+    </footer>
   </div>
+
 </div>
 
 
-  </div>
-  </body>
+</div>
+</body>
 </html>
