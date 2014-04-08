@@ -1,7 +1,7 @@
 <?php
 
-include_once 'Fase.php';
-include_once 'ABSTRACT_PULL.php';
+include 'Fase.php';
+include 'ABSTRACT_PULL.php';
 
 class STF_PULL extends ABSTRACT_PULL{
 
@@ -41,10 +41,10 @@ class STF_PULL extends ABSTRACT_PULL{
 	public function parserHTMLtoFase($resultadoHTML){
 
 		//Pega o campo da tabela com todas as fases
-		$tabela_fases = $this->match_all_between($resultadoHTML,$this->delimitador_inicio_campo_fases,$this->delimitador_fim_campo_fases);
-		$array_fases = $this->match_all_between($tabela_fases[0],$this->delimitador_inicio_cada_fase,$this->delimitador_fim_cada_fase);
+		$tabela_fases = match_all_between($resultadoHTML,$this->delimitador_inicio_campo_fases,$this->delimitador_fim_campo_fases);
+		$array_fases = match_all_between($tabela_fases[0],$this->delimitador_inicio_cada_fase,$this->delimitador_fim_cada_fase);
 		for ($i=1; $i < count($array_fases) ; $i++) {
-			$array_dados_fase = $this->match_all_between($array_fases[$i],$this->delimitador_inicio_informacao,$this->delimitador_fim_informacao);
+			$array_dados_fase = match_all_between($array_fases[$i],$this->delimitador_inicio_informacao,$this->delimitador_fim_informacao);
 			$fase = new Fase($array_dados_fase[0],$array_dados_fase[1]); 
 			array_push($this->lista_fases,$fase);
 		}

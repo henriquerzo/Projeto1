@@ -1,8 +1,8 @@
 
 <?php
 
-include_once 'Fase.php';
-include_once 'ABSTRACT_PULL.php';
+include 'Fase.php';
+include 'ABSTRACT_PULL.php';
 
 class TJPB_PULL extends ABSTRACT_PULL{
 
@@ -47,17 +47,12 @@ class TJPB_PULL extends ABSTRACT_PULL{
     public function parserHTMLtoFase($resultadoHTML){
 
         //Pega o campo da tabela com todas as fases
-        $tabela_fases = $this->match_all_between($resultadoHTML,$this->delimitador_inicio_campo_fases,$this->delimitador_fim_campo_fases);
-        if(count($tabela_fases) != 0){
-            $array_datas = $this->match_all_between($tabela_fases[0],$this->delimitador_inicio_data_fase,$this->delimitador_fim_data_fase);
-            $array_descricoes = $this->match_all_between($tabela_fases[0],$this->delimitador_inicio_descricao,$this->delimitador_fim_descricao);
-            for ($i=1; $i < count($array_datas) ; $i++) {
-                $fase = new Fase($array_datas[$i],trim($array_descricoes[$i])); 
-                array_push($this->lista_fases,$fase);
-            }
-        }else{
-            
-            
+        $tabela_fases = match_all_between($resultadoHTML,$this->delimitador_inicio_campo_fases,$this->delimitador_fim_campo_fases);
+        $array_datas = match_all_between($tabela_fases[0],$this->delimitador_inicio_data_fase,$this->delimitador_fim_data_fase);
+        $array_descricoes = match_all_between($tabela_fases[0],$this->delimitador_inicio_descricao,$this->delimitador_fim_descricao);
+        for ($i=1; $i < count($array_datas) ; $i++) {
+            $fase = new Fase($array_datas[$i],trim($array_descricoes[$i])); 
+            array_push($this->lista_fases,$fase);
         }
     }
 

@@ -13,7 +13,6 @@ function run_search_processos_usuario(){
 	return false;
 }
 
-
 function atualiza_processo(numeroProcesso, tribunal, situacao){
 
 	$.ajax({
@@ -24,10 +23,9 @@ function atualiza_processo(numeroProcesso, tribunal, situacao){
 		async: true,
 		success: function(response) {
 			if(situacao==response){
-				alert("Não houve andamento no processo!");
+				alert("situacao atual:"+ situacao + "\n"+"nova situacao:" + response +"\n" + "Não houve andamento no processo!");
 			}else{
-				alert("Houve andamento no processo!");
-				location.reload();
+				alert("situacao atual:"+ situacao + "\n"+"nova situacao:" + response +"\n" + "Houve andamento no processo!");
 			}
 		}
 	});

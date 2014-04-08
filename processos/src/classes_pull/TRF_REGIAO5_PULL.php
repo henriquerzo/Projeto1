@@ -1,7 +1,7 @@
 <?php
 
-include_once 'Fase.php';
-include_once 'ABSTRACT_PULL.php';
+include 'Fase.php';
+include 'ABSTRACT_PULL.php';
 
 class TRF_REGIAO5_PULL extends ABSTRACT_PULL{
 
@@ -32,8 +32,8 @@ class TRF_REGIAO5_PULL extends ABSTRACT_PULL{
 
 	public function parserHTMLtoFase($resultadoHTML){
 		
-		$campo_fases = $this->match_all_between($resultadoHTML,$this->delimitador_inicio_campo_fases,$this->delimitador_fim_campo_fases);
-		$array_fases =$this-> match_all_between($campo_fases[0],$this->delimitador_inicio_fase,$this->delimitador_fim_fase);
+		$campo_fases = match_all_between($resultadoHTML,$this->delimitador_inicio_campo_fases,$this->delimitador_fim_campo_fases);
+		$array_fases = match_all_between($campo_fases[0],$this->delimitador_inicio_fase,$this->delimitador_fim_fase);
 		for ($i=0; $i < count($array_fases) ; $i++) {
 			$data = substr($array_fases[$i],0,10);
 			$nome_fase = substr($array_fases[$i],19,strlen($array_fases[$i]));

@@ -1,7 +1,7 @@
 <?php
 
-include_once 'Fase.php';
-include_once 'ABSTRACT_PULL.php';
+include 'Fase.php';
+include 'ABSTRACT_PULL.php';
 
 class TSM_PULL extends ABSTRACT_PULL{
 

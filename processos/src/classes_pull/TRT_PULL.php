@@ -1,7 +1,7 @@
 <?php
 
-include_once 'Fase.php';
-include_once 'ABSTRACT_PULL.php';
+include 'Fase.php';
+include 'ABSTRACT_PULL.php';
 
 class TRT_PULL extends ABSTRACT_PULL{
 
@@ -40,9 +40,9 @@ class TRT_PULL extends ABSTRACT_PULL{
 
 	public function parserHTMLtoFase($resultadoHTML){
 		
-		$campo_fases = $this->match_all_between($resultadoHTML,$this->delimitador_inicio_campo_fases,$this->delimitador_fim_campo_fases);
-		$datas = $this->match_all_between($campo_fases[0],$this->delimitador_inicio_datas,$this->delimitador_fim_datas);
-		$fases = $this->match_all_between($campo_fases[0],$this->delimitador_inicio_fases,$this->delimitador_fim_fases);
+		$campo_fases = match_all_between($resultadoHTML,$this->delimitador_inicio_campo_fases,$this->delimitador_fim_campo_fases);
+		$datas = match_all_between($campo_fases[0],$this->delimitador_inicio_datas,$this->delimitador_fim_datas);
+		$fases = match_all_between($campo_fases[0],$this->delimitador_inicio_fases,$this->delimitador_fim_fases);
 		for ($i=0; $i < count($datas) ; $i++) {
 			//formata descricao da fase.
 			$nome_fase_formatada = str_replace("&nbsp;", "", $fases[$i]);
