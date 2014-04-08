@@ -2,6 +2,6 @@
 
 setcookie("nome_usuario");
 setcookie("senha_usuario");
-header("Location: index.php")
+header("Location: ../view/index.html")
 
 ?>

@@ -18,16 +18,17 @@
 		//$obj->pull();
  		//$lista_processos_pull = $obj->getListaFases();
  		//echo var_dump($lista_processos_pull);
-
- 		include 'TRT_PULL.php';
-		$obj = new TRT_PULL('0021600-82.2006.5.13.0001');
-		$obj->pull();
+		
+		//Ainda nao ta prestando
+ 		//include 'TRT_PULL.php';
+		//$obj = new TRT_PULL('0021600-82.2006.5.13.0001');
+		//$obj->pull();
  		//$lista_processos_pull = $obj->getListaFases();
  		//echo var_dump($lista_processos_pull);
 
 
  		//TESTA CLASSE TSE_PULL.php
-        //include 'classes_pull/TSE_PULL.php';
+        //include 'TSE_PULL.php';
         //$obj = new TSE_PULL('167192001');
         //$obj->pull();
         //$lista_processos_pull = $obj->getListaFases();

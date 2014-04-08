@@ -1,7 +1,7 @@
 <?php
 
-include 'Fase.php';
-include 'ABSTRACT_PULL.php';
+include_once 'Fase.php';
+include_once 'ABSTRACT_PULL.php';
 
 class TST_PULL extends ABSTRACT_PULL{
 
@@ -49,7 +49,7 @@ class TST_PULL extends ABSTRACT_PULL{
 		return $this->lista_fases;
 	}
 
-	function pull(){
+	public function pull(){
 		
 		$tmp_fname = tempnam("/tmp", "COOKIE");
 		$url_post = 'http://aplicacao5.tst.jus.br/consultaProcessual/consultaTstNumUnica.do?conscsjt=&numeroTst='.$this->getNumeroProcesso().'&digitoTst='.$this->getDigitoProcesso().'&anoTst='.$this->getAno().'&orgaoTst='.$this->getOrgao().'&tribunalTst='.$this->getTribunal().'&varaTst='.$this->getVara().'&consulta=Consultar';
@@ -62,7 +62,7 @@ class TST_PULL extends ABSTRACT_PULL{
 		
 	}
 
-	function parserHTMLtoFase($resultadoHTML){
+	public function parserHTMLtoFase($resultadoHTML){
 		$nomes = $this->match_all_between($resultadoHTML,$this->delimitador_inicio_campo_fases,$this->delimitador_fim_campo_fases);
 		$datas = $this->match_all_between($resultadoHTML,$this->delimitador_inicio_horarios,$this->delimitador_fim_horarios);
 		for ($i=0; $i < count($nomes) ; $i++) {
@@ -71,18 +71,7 @@ class TST_PULL extends ABSTRACT_PULL{
 		}
 	}
 
-	function match_all_between($text, $start_tag, $end_tag){
-
-		$delimiter = '#';
-		$regex = $delimiter . preg_quote($start_tag, $delimiter) 
-		. '(.*?)' 
-		. preg_quote($end_tag, $delimiter) 
-		. $delimiter 
-		. 's';
-		preg_match_all($regex, $text, $result_array);
-		return $result_array[1];
-
-	}
+	
 }
 
 ?>

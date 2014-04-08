@@ -3,3 +3,5 @@ Problemas encontrados com pull dos tribunais
 - A pesquisa feita no TRE tem que ser pelo numero do procotolo junto com o ano.
 - No TRF 2 regiao a pesquisa é feita com o numero do protocolo retirando todos os caracteres especiais.
 - Lembrar de formatar os nomes das fases.
+- No cadastro de um processo, qnd um numero é passado errado o alert esta vazio.
+- resolver problema de qnd a pagina da requisicao der timeout.

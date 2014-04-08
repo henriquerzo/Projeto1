@@ -1,15 +1,3 @@
 .dataTables_filter {
      display: none;
 }
-
-table.pretty thead th.sorting_asc {
-  background: url('../images/down.png') no-repeat right center;
-}
-
-table.pretty thead th.sorting_desc {
-  background: url('../images/up.png') no-repeat right center;
-}
-
-table.pretty thead th.sorting {
-  background: url('../images/updown.png') no-repeat right center;
-}
