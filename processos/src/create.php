@@ -25,9 +25,9 @@
     <div class="container">
       <div class="navbar-collapse collapse">
         <ul class="nav navbar-nav">
-          <li class=""><a href="home.php">Home</a></li>
-          <li><a href="#about">Sobre</a></li>
-          <li><a href="#contact">Contato</a></li>
+          <li><a href="home.php">Home</a></li>
+          <li><a href="sobreHome.php">Sobre</a></li>
+          <li><a href="contato/feedbackMail.php">Contato</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
           <li><a href="../navbar-fixed-top/">Sair</a></li>
