@@ -25,13 +25,13 @@
      row = table_array[i];
 
      tab_body.append('<tr>'
-       + '<td>' + row['numeroProcesso'] + '</td>'
-       + '<td>' + row['tribunal'] + '</td>'
-       + '<td>' + row['situacao'] + '</td>'
-       + '<td>' + row['cliente'] + '</td>'
-       + '<td width=250>'
-       + '<button class="btn btn-warning btn-xs" onClick="atualiza_processo(' + row['numeroProcesso']
-         + ',' + "'" + row['tribunal'] + "'" + ","+ "'" + row['situacao'] + "'" +');">Atualizar</button>'
+      + '<td>' + row['numeroProcesso'] + '</td>'
+      + '<td>' + row['tribunal'] + '</td>'
+      + '<td>' + row['situacao'] + '</td>'
+      + '<td>' + row['cliente'] + '</td>'
+      + '<td width=250>'
+      + '<button class="btn btn-warning btn-xs" onClick="atualiza_processo(' + "'" + row['numeroProcesso'] + "'"
+        + ',' + "'" + row['tribunal'] + "'" + ","+ "'" + row['situacao'] + "'" +');">Atualizar</button>'
      + ' '
      + '<a class="btn btn-info btn-xs" href="detalhes.php?numeroProcesso=' + row['numeroProcesso'] + '">Detalhes</a>'
      + ' '
@@ -79,7 +79,7 @@ function deleteConfirmation(id){
     $.ajax({
       type: "POST",
       url: "delete.php",
-      data: { id: id}
+      data: {"id": id}
     })
     location.reload();
   }

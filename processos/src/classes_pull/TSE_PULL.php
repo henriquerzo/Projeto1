@@ -1,7 +1,7 @@
 <?php
 
-include 'Fase.php';
-include 'ABSTRACT_PULL.php';
+include_once 'Fase.php';
+include_once 'ABSTRACT_PULL.php';
 
 class TSE_PULL extends ABSTRACT_PULL{
 
@@ -39,11 +39,13 @@ class TSE_PULL extends ABSTRACT_PULL{
 
 	public function parserHTMLtoFase($resultadoHTML){
 		$nomes = $this->match_all_between($resultadoHTML,$this->delimitador_inicio_campo_fases,$this->delimitador_fim_campo_fases);
-		$datas = $this->match_all_between($resultadoHTML,$this->delimitador_inicio_horarios,$this->delimitador_fim_horarios);
-		for ($i=0; $i < count($nomes) ; $i++) {
-			$nomes = trim($nomes[$i]);
-			$fase = new Fase($datas[$i],$nomes); 
-			array_push($this->lista_fases,$fase);
+		if(count($nomes) != 0){
+			$datas = $this->match_all_between($resultadoHTML,$this->delimitador_inicio_horarios,$this->delimitador_fim_horarios);
+			for ($i=0; $i < count($nomes) ; $i++) {
+				$nomes = trim($nomes[$i]);
+				$fase = new Fase($datas[$i],$nomes); 
+				array_push($this->lista_fases,$fase);
+			}
 		}
 	}
 }

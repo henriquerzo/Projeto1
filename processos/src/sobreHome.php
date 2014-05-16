@@ -25,7 +25,8 @@
     <div class="container">
       <div class="navbar-collapse collapse">
         <ul class="nav navbar-nav">
-          <li><a href="sobre.php">Sobre</a></li>
+          <li><a href="home.php">Home</a></li>
+          <li class="active"><a href="sobre.php">Sobre</a></li>
           <li><a href="contato/feedbackMail.php">Contato</a></li>
         </ul>
       </div><!--/.nav-collapse -->
@@ -43,30 +44,40 @@
   </div>
 
   <div class="container theme-showcase" role="main">
+    <h1>Sobre</h1>
+    <hr>
 
-    <div class="container">
-      <div class="row">
-        <div class="col-sm-6 col-md-4 col-md-offset-4">
-          <h1 class="text-center login-title">Entre para acessar seus processos</h1>
-          <div class="account-wall">
-            <img class="profile-img" src="https://lh5.googleusercontent.com/-b0-k99FZlyE/AAAAAAAAAAI/AAAAAAAAAAA/eu7opA4byxI/photo.jpg?sz=120"
-            alt="">
-            <div class="form-signin">
-              <div id="login_content">
-                <input type="text" class="form-control" placeholder="Usuário" name="usuario" required autofocus>
-                <input type="password" class="form-control" placeholder="Senha" name="senha" required>
-                <button class="btn btn-lg btn-primary btn-block" id="btn_login" onclick="validarSenha();">Entrar</button>
-                </div>
-                <label class="checkbox pull-left">
-                  <input type="checkbox" value="lembrar">
-                  Lembrar
-                </label>
-                <span class="clearfix"></span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+    <p class="lead text-left"><b>O sistema tem como função auxiliar advogados e afins a gerenciar seus processos de maneira fácil e intuitiva. </b></p>
+
+    <p class="text-left"><b>Algumas funcionalidades:</b></p>
+    <ul>
+      <li><b>Acesse seus processos de qualquer lugar com acesso a internet;</b></li>
+      <li><b>Acompanhe o andamento dos seus processos em tempo real;</b></li>
+      <li><b>Receba alertas quando alguma movimentação importante ocorrer.</b></li>
+    </ul>
+
+    <hr>
+
+    <p class="text-left"><b>Esse sistema foi densenvolvido por alunos da UFCG para a disciplina Projeto 1</b></p>
+    <p class="text-left"><b>Alunos desenvolvedores:</b></p>
+
+    <ul>
+      <li><p>Elias Paulino Medeiros</p></li>
+      <li><p>Henrique César Florêncio</p></li>
+      <li><p>Rodolfo Moraes Martins</p></li>
+    </ul>
+    
+    <p class="text-left"><b>Professor responsável:</b></p>
+
+    <ul>
+      <li><p>Kyller Costa Gorgônio</p></li>
+    </ul>
+
+    <p class="text-left"><b>Cliente:</b></p>
+
+    <ul>
+      <li><p>José Gildo Araújo</p></li>
+    </ul>
 
       <hr>
 

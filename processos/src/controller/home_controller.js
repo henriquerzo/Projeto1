@@ -18,14 +18,15 @@ function atualiza_processo(numeroProcesso, tribunal, situacao){
 	$.ajax({
 		type: 'POST',
 		dataType: 'text',
-		data:{'numeroProcesso':numeroProcesso,'tribunal':tribunal},
+		data:{'numeroProcesso':numeroProcesso,'tribunal':tribunal,'situacao':situacao},
 		url: 'model/model_atualiza_processo.php',
 		async: true,
 		success: function(response) {
-			if(situacao==response){
-				alert("situacao atual:"+ situacao + "\n"+"nova situacao:" + response +"\n" + "Não houve andamento no processo!");
+			if(response==1){
+				alert("Não houve andamento no processo!");
 			}else{
-				alert("situacao atual:"+ situacao + "\n"+"nova situacao:" + response +"\n" + "Houve andamento no processo!");
+				alert("Houve andamento no processo!");
+				location.reload();
 			}
 		}
 	});

@@ -1,7 +1,7 @@
 <?php
 
-include 'Fase.php';
-include 'ABSTRACT_PULL.php';
+include_once 'Fase.php';
+include_once 'ABSTRACT_PULL.php';
 
 class STJ_PULL extends ABSTRACT_PULL{
 
@@ -23,7 +23,7 @@ class STJ_PULL extends ABSTRACT_PULL{
 		$url_post = 'http://www.stj.jus.br/webstj/Processo/Justica/valida.asp';
 		$cURL = curl_init($url_post);
 		$numero_formatado = str_replace(" ", "+",$this->getNumeroProcesso());
-		curl_setopt($cURL, CURLOPT_POSTFIELDS, "num_pro=".$numero_formatado."&num_reg=&num_unico=&num_ori=&cod_oab=&nom_par=&nom_adv=&optTipo=I&chkordem=DESC&submit1=+Consultar+&pesquisa_avancada=");
+		curl_setopt($cURL, CURLOPT_POSTFIELDS, "num_pro=REsp+123456&num_reg=&num_unico=&num_ori=&cod_oab=&nom_par=&nom_adv=&optTipo=I&chkordem=DESC&submit1=+Consultar+&pesquisa_avancada=");
 		curl_setopt($cURL, CURLOPT_POST, true);
 		curl_setopt ($cURL, CURLOPT_COOKIEJAR, $tmp_fname);
 		curl_setopt($cURL, CURLOPT_RETURNTRANSFER, true);

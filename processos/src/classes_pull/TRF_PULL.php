@@ -1,7 +1,7 @@
 <?php
 
-include 'Fase.php';
-include 'ABSTRACT_PULL.php';
+include_once 'Fase.php';
+include_once 'ABSTRACT_PULL.php';
 
 class TRF_PULL extends ABSTRACT_PULL{
 
@@ -34,15 +34,17 @@ class TRF_PULL extends ABSTRACT_PULL{
 
 	public function parserHTMLtoFase($resultadoHTML){
 		
-		$campo_fases = match_all_between($resultadoHTML,$this->delimitador_inicio_campo_fases,$this->delimitador_fim_campo_fases);
-		$datas = match_all_between($campo_fases[0],$this->delimitador_inicio_datas,$this->delimitador_fim_datas);
-		$fases = match_all_between($campo_fases[0],$this->delimitador_inicio_fases,$this->delimitador_fim_fases);
-		for ($i=0; $i < count($datas) ; $i++) {
-			//formata descricao da fase.
-			$nome_fase_formatada = str_replace("&nbsp;", "", $fases[$i]);
-			$nome_fase_formatada = str_replace("<BR>", "", $nome_fase_formatada);
-			$fase = new Fase($datas[$i],$nome_fase_formatada); 
-			array_push($this->lista_fases,$fase);
+		$campo_fases = $this->match_all_between($resultadoHTML,$this->delimitador_inicio_campo_fases,$this->delimitador_fim_campo_fases);
+		if(count($campo_fases) != 0){
+			$datas = $this->match_all_between($campo_fases[0],$this->delimitador_inicio_datas,$this->delimitador_fim_datas);
+			$fases = $this->match_all_between($campo_fases[0],$this->delimitador_inicio_fases,$this->delimitador_fim_fases);
+			for ($i=0; $i < count($datas) ; $i++) {
+				//formata descricao da fase.
+				$nome_fase_formatada = str_replace("&nbsp;", "", $fases[$i]);
+				$nome_fase_formatada = str_replace("<BR>", "", $nome_fase_formatada);
+				$fase = new Fase($datas[$i],$nome_fase_formatada); 
+				array_push($this->lista_fases,$fase);
+			}
 		}
 	}
 

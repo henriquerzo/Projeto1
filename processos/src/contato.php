@@ -25,8 +25,9 @@
     <div class="container">
       <div class="navbar-collapse collapse">
         <ul class="nav navbar-nav">
+          <li><a href="home.php">Home</a></li>
           <li><a href="sobre.php">Sobre</a></li>
-          <li><a href="contato/feedbackMail.php">Contato</a></li>
+          <li class="active"><a href="contato/feedbackMail.php">Contato</a></li>
         </ul>
       </div><!--/.nav-collapse -->
     </div>
@@ -43,30 +44,33 @@
   </div>
 
   <div class="container theme-showcase" role="main">
+    <h2>Deixe sua mensagem</h2>
+    <hr>
+    <div class="row">
 
-    <div class="container">
-      <div class="row">
-        <div class="col-sm-6 col-md-4 col-md-offset-4">
-          <h1 class="text-center login-title">Entre para acessar seus processos</h1>
-          <div class="account-wall">
-            <img class="profile-img" src="https://lh5.googleusercontent.com/-b0-k99FZlyE/AAAAAAAAAAI/AAAAAAAAAAA/eu7opA4byxI/photo.jpg?sz=120"
-            alt="">
-            <div class="form-signin">
-              <div id="login_content">
-                <input type="text" class="form-control" placeholder="Usuário" name="usuario" required autofocus>
-                <input type="password" class="form-control" placeholder="Senha" name="senha" required>
-                <button class="btn btn-lg btn-primary btn-block" id="btn_login" onclick="validarSenha();">Entrar</button>
-                </div>
-                <label class="checkbox pull-left">
-                  <input type="checkbox" value="lembrar">
-                  Lembrar
-                </label>
-                <span class="clearfix"></span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+    
+<div class="col-md-8 col-sm-offset-2 contact-form">
+<div id="contact" method="post" class="form" role="form">
+<div class="row">
+<div class="col-xs-6 col-md-6 form-group">
+<input class="form-control" id="name" name="name" placeholder="Nome" type="text" required="" autofocus="">
+</div>
+<div class="col-xs-6 col-md-6 form-group">
+<input class="form-control" id="email" name="email" placeholder="Email" type="email" required="">
+</div>
+</div>
+<textarea class="form-control" id="message" name="message" placeholder="Mensagem" rows="5"></textarea>
+<br>
+<div class="row">
+<div class="col-xs-12 col-md-12 form-group">
+<button class="btn btn-primary pull-right" type="submit">Submit</button>
+
+</div>
+</div></div> <script type="text/javascript">
+    </script>
+
+
+</div></div>
 
       <hr>
 
