@@ -32,8 +32,11 @@ class TSE_PULL extends ABSTRACT_PULL{
 		curl_setopt($cURL, CURLOPT_POSTFIELDS, "partesSelecionadas=Andamento");
 		curl_setopt($cURL, CURLOPT_REFERER, 'http://www.tse.jus.br/sadJudSadpPush/ExibirDadosProcesso.do?nprot=' . $this->getNumeroProcesso() . '&comboTribunal=tse');
 		$resultado = curl_exec($cURL);
-		$this->parserHTMLtoFase($resultado);
+		if($resultado != false){
+			$this->parserHTMLtoFase($resultado);
+		}
 		curl_close($cURL);
+
 		
 	}
 
@@ -42,8 +45,8 @@ class TSE_PULL extends ABSTRACT_PULL{
 		if(count($nomes) != 0){
 			$datas = $this->match_all_between($resultadoHTML,$this->delimitador_inicio_horarios,$this->delimitador_fim_horarios);
 			for ($i=0; $i < count($nomes) ; $i++) {
-				$nomes = trim($nomes[$i]);
-				$fase = new Fase($datas[$i],$nomes); 
+				$nome = trim($nomes[$i]);
+				$fase = new Fase($datas[$i],$nome); 
 				array_push($this->lista_fases,$fase);
 			}
 		}

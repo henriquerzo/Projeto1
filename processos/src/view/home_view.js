@@ -33,7 +33,7 @@
       + '<button class="btn btn-warning btn-xs" onClick="atualiza_processo(' + "'" + row['numeroProcesso'] + "'"
         + ',' + "'" + row['tribunal'] + "'" + ","+ "'" + row['situacao'] + "'" +');">Atualizar</button>'
      + ' '
-     + '<a class="btn btn-info btn-xs" href="detalhes.php?numeroProcesso=' + row['numeroProcesso'] + '">Detalhes</a>'
+     + '<a class="btn btn-info btn-xs" href="detalhes.php?numeroProcesso=' + row['numeroProcesso'] + "&tribunal=" + row['tribunal'] + '">Detalhes</a>'
      + ' '
      + '<a class="btn btn-primary btn-xs" href="update.php?id=' + row['id'] + '">Editar</a>'
      + ' '

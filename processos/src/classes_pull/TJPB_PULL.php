@@ -37,7 +37,9 @@ class TJPB_PULL extends ABSTRACT_PULL{
         curl_setopt($cURL, CURLOPT_RETURNTRANSFER, true);
         curl_setopt ($cURL, CURLOPT_COOKIEFILE, $tmp_fname);
         $resultado = curl_exec($cURL);
-        $this->parserHTMLtoFase($resultado);
+        if($resultado != false){
+            $this->parserHTMLtoFase($resultado);
+        }
         curl_close($cURL);
         
     }

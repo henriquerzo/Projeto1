@@ -32,8 +32,9 @@
         //$obj = new TSE_PULL('167192001');
         //$obj->pull();
         //$lista_processos_pull = $obj->getListaFases();
-        //echo var_dump($lista_processos_pull[0]->getNome());
-
+        //echo var_dump($lista_processos_pull);
+		
+		//qnd testado servidor com problema.
 		//TESTA CLASSE TRE_PULL.php
 		//include 'TRE_PULL.php';
 		//$obj = new TRE_PULL('145892013');
@@ -41,6 +42,7 @@
  		//$lista_processos_pull = $obj->getListaFases();
  		//echo var_dump($lista_processos_pull);
 
+		//Passou a possuir captcha
 		//TESTA CLASSE TRF_PULL.php
 		//include 'TRF_PULL.php';
 		//$obj = new TRF_PULL('201302010125452');

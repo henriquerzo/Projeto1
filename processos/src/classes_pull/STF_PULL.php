@@ -31,7 +31,9 @@ class STF_PULL extends ABSTRACT_PULL{
 		curl_setopt ($cURL, CURLOPT_COOKIEJAR, $tmp_fname);
 		curl_setopt($cURL, CURLOPT_RETURNTRANSFER, true);
 		$resultado = curl_exec($cURL);
-		$this->parserHTMLtoFase($resultado);
+		if($resultado != false){
+			$this->parserHTMLtoFase($resultado);
+		}
 		curl_close($cURL);
 		
 	}

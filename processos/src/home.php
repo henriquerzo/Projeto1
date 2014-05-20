@@ -19,6 +19,7 @@
   <script type="text/javascript" src="js/bootstrap.js"></script>
   
   <script type="text/javascript" language="javascript" src="controller/home_controller.js"></script>
+  <script type="text/javascript" language="javascript" src="controller/detalhes_controller.js"></script>
   <script type="text/javascript" language="javascript" src="view/home_view.js"></script>
   <title>Gerenciador de Processos</title>
 </head>

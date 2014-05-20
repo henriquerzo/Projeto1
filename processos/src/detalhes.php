@@ -9,6 +9,7 @@
 	<meta name="description" content="">
 	<meta name="author" content="">
 	<link rel="shortcut icon" href="../../assets/ico/favicon.ico">
+	<script type="text/javascript" language="javascript" src="view/home_view.js"></script>
 
 	<title>Detalhes</title>
 </head>
@@ -55,24 +56,66 @@
 			</thead>
 			<tbody>
 				<?php
-				include "classes_pull/TSE_PULL.php";
-				$numeroProcesso = 0;
-				$array = array();
-				if ( !empty($_GET['numeroProcesso'])) {
+				
+					$lista_processos_pull = array();
 					$numeroProcesso = $_REQUEST['numeroProcesso'];
-					$obj = new TSE_PULL($numeroProcesso);
-					$obj->pull();
-					$GLOBALS['array'] = $obj->getListaFases();
-					for ($i=0; $i < count($array); $i++) { 
+					$tribunal = $_REQUEST['tribunal'];
+			switch ($tribunal) {
+            case 'T. Superior Eleitoral':
+                include 'classes_pull/TSE_PULL.php';
+                $obj = new TSE_PULL($numeroProcesso);
+                $obj->pull();
+                $lista_processos_pull = $obj->getListaFases();
+                
+                break;
+            case 'TJ-PB':
+                include 'classes_pull/TJPB_PULL.php';
+                $obj = new TJPB_PULL($numeroProcesso);
+                $obj->pull();
+                $lista_processos_pull = $obj->getListaFases();
+                
+                break;
+            case 'S. Tribunal Federal':
+                include 'classes_pull/STF_PULL.php';
+                $obj = new STF_PULL($numeroProcesso);
+                $obj->pull();
+                $lista_processos_pull = $obj->getListaFases();
+                
+                break;
+            case 'T. Regional Federal':
+                include 'classes_pull/TRF_PULL.php';
+                $obj = new TRF_PULL($numeroProcesso);
+                $obj->pull();
+                $lista_processos_pull = $obj->getListaFases();
+                
+                break;
+            case 'T. Regional Eleitoral':
+                include 'classes_pull/TRE_PULL.php';
+                $obj = new TRE_PULL($numeroProcesso);
+                $obj->pull();
+                $lista_processos_pull = $obj->getListaFases();
+                
+                break;
+            case 'T. Regional Federal 5º Regiao':
+                include 'classes_pull/TRF_REGIAO5_PULL.php';
+                $obj = new TRF_REGIAO5_PULL($numeroProcesso);
+                $obj->pull();
+                $lista_processos_pull = $obj->getListaFases();
+                
+                break;
+            default:
+                # code...
+                break;
+        }
+
+					for ($i=0; $i < count($lista_processos_pull); $i++) { 
 						echo '<tr>';
-						echo '<td>'. $array[$i]->getDate() . '</td>';
-						echo '<td>'. $array[$i]->getNome() . '</td>';
+						echo '<td>'. $lista_processos_pull[$i]->getDate() . '</td>';
+						echo '<td>'. $lista_processos_pull[$i]->getNome() . '</td>';
 						echo '</tr>';
 					}	
-				}
-				function getFase(){
-					return $GLOBALS['array'];
-				}
+				
+				
 
 				?>
 
