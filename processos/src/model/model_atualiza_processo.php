@@ -15,7 +15,7 @@
                 $obj = new TSE_PULL($numeroProcesso);
                 $obj->pull();
                 $lista_processos_pull = $obj->getListaFases();
-                $situacao = $lista_processos_pull[0]->getNome();
+                
                 break;
             case 'TJ-PB':
                 include '../classes_pull/TJPB_PULL.php';
@@ -57,14 +57,19 @@
                 break;
         }
 
-        
+   if(count($lista_processos_pull) != 0){
     $situacao = $lista_processos_pull[0]->getNome();
     $sql2 = 'UPDATE processos set situacao=' . "'". utf8_encode($situacao) . "'" . 'where numeroProcesso=' . "'" . $numeroProcesso. "'";
     $pdo->query($sql2);
+    echo utf8_encode($situacao)==$situacao2; 
+   }else{
+    echo ('Não foi possivel atualizar o processo.Verifique se o número do processo está correto, ou sua conexão de internet!'); 
+   }  
+    
 
         
  
- echo utf8_encode($situacao)==$situacao2;    
+    
      
         
     

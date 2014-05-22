@@ -78,9 +78,9 @@
             if ($valid) {
                 $pdo = Database::connect();
                 $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-                $sql = "INSERT INTO processos (numeroProcesso, tribunal, situacao, cliente, observacoes) values(?, ?, ?, ?, ?)";
+                $sql = "INSERT INTO processos (numeroProcesso, tribunal, situacao, cliente, observacoes, status) values(?, ?, ?, ?, ?, ?)";
                 $q = $pdo->prepare($sql);
-                $q->execute(array($numeroProcesso, $tribunal, utf8_encode($situacao), $cliente, $observacoes));
+                $q->execute(array($numeroProcesso, $tribunal, utf8_encode($situacao), $cliente, $observacoes,'1'));
                 Database::disconnect();
                 array_push($array_saida, "Processo cadastrado!");
             }

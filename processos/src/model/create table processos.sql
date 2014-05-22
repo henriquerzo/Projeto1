@@ -4,7 +4,8 @@ CREATE TABLE  processos (
 	tribunal VARCHAR( 100 ) ,
 	situacao VARCHAR(100) ,
 	cliente VARCHAR( 100 ) ,
-	observacoes VARCHAR( 255 )
+	observacoes VARCHAR( 255 ) ,
+	status CHAR
 	) ENGINE = INNODB;
 
 CREATE TABLE FASES(

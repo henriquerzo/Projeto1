@@ -13,6 +13,21 @@ function run_search_processos_usuario(){
 	return false;
 }
 
+function resolve_processo(numeroProcesso){
+
+	$.ajax({
+		type: 'POST',
+		dataType: 'text',
+		data:{'numeroProcesso':numeroProcesso},
+		url: 'model/model_resolve_processo.php',
+		async: true,
+		success: function(response) {
+			location.reload();
+		}
+	});
+	return false;
+}
+
 function atualiza_processo(numeroProcesso, tribunal, situacao){
 
 	$.ajax({
@@ -24,9 +39,11 @@ function atualiza_processo(numeroProcesso, tribunal, situacao){
 		success: function(response) {
 			if(response==1){
 				alert("Não houve andamento no processo!");
-			}else{
+			}else if(response==0){
 				alert("Houve andamento no processo!");
 				location.reload();
+			}else{
+				alert(response);
 			}
 		}
 	});

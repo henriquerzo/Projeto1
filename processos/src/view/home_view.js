@@ -1,6 +1,6 @@
   function show_processos_usuario(table_array){
 
-  	if (table_array.length <= 0){
+    if (table_array.length <= 0){
       $("#tabela_processos_usuario").html("<em>Nenhum processo cadastrado.</em>");
       return false;
     }
@@ -24,23 +24,62 @@
 
      row = table_array[i];
 
-     tab_body.append('<tr>'
-      + '<td>' + row['numeroProcesso'] + '</td>'
-      + '<td>' + row['tribunal'] + '</td>'
-      + '<td>' + row['situacao'] + '</td>'
-      + '<td>' + row['cliente'] + '</td>'
-      + '<td width=250>'
-      + '<button class="btn btn-warning btn-xs" onClick="atualiza_processo(' + "'" + row['numeroProcesso'] + "'"
-        + ',' + "'" + row['tribunal'] + "'" + ","+ "'" + row['situacao'] + "'" +');">Atualizar</button>'
-     + ' '
-     + '<a class="btn btn-info btn-xs" href="detalhes.php?numeroProcesso=' + row['numeroProcesso'] + "&tribunal=" + row['tribunal'] + '">Detalhes</a>'
-     + ' '
-     + '<a class="btn btn-primary btn-xs" href="update.php?id=' + row['id'] + '">Editar</a>'
-     + ' '
-     + '<a class="btn btn-danger btn-xs" onClick="deleteConfirmation(' + row['id'] + ')">Deletar</a>'
-     + '</td>'
-     + '</tr>'
-     );
+     if(row['status'] == "1"){
+
+      var table_atualizados = $("#tab_processos_atualizados");
+      table_atualizados.append('<thead>'
+      + '<tr>'
+      + '<th style="cursor: pointer; width: 140px;" >Processo</th>'
+      + '<th style="cursor: pointer; width: 140px;" >Tribunal</th>'
+      + '<th style="cursor: pointer; width: 289px;" >Situação</th>'
+      + '<th style="cursor: pointer; width: 140px;" >Cliente</th>'
+      + '<th>Ações</th>'
+      + '</tr>'
+      + '</thead>'
+      + '<tbody id="tab_body_atualizados"> </tbody>'
+      );
+
+      var tab_body_atualizados = $("#tab_body_atualizados");
+      
+      tab_body_atualizados.append('<tr class="success">'
+        + '<td>' + row['numeroProcesso'] + '</td>'
+        + '<td>' + row['tribunal'] + '</td>'
+        + '<td>' + row['situacao'] + '</td>'
+        + '<td>' + row['cliente'] + '</td>'
+        + '<td width=250>'
+        + '<button class="btn btn-warning btn-xs" onClick="atualiza_processo(' + "'" + row['numeroProcesso'] + "'"
+          + ',' + "'" + row['tribunal'] + "'" + ","+ "'" + row['situacao'] + "'" +');">Atualizar</button>'
+       + ' '
+       + '<a class="btn btn-info btn-xs" href="detalhes.php?numeroProcesso=' + row['numeroProcesso'] + "&tribunal=" + row['tribunal'] + '">Detalhes</a>'
+       + ' '
+       + '<a class="btn btn-primary btn-xs" href="update.php?id=' + row['id'] + '">Editar</a>'
+       + ' '
+       + '<a class="btn btn-danger btn-xs" onClick="deleteConfirmation(' + row['id'] + ')">Deletar</a>'
+       + ' '
+       + '<button class="btn btn-warning btn-xs" onClick="resolve_processo(' + "'" + row['numeroProcesso'] + "'" +');">Feito</button>'
+       + '</td>'
+       + '</tr>'
+       );
+    }else{
+      tab_body.append('<tr>'
+        + '<td>' + row['numeroProcesso'] + '</td>'
+        + '<td>' + row['tribunal'] + '</td>'
+        + '<td>' + row['situacao'] + '</td>'
+        + '<td>' + row['cliente'] + '</td>'
+        + '<td width=250>'
+        + '<button class="btn btn-warning btn-xs" onClick="atualiza_processo(' + "'" + row['numeroProcesso'] + "'"
+          + ',' + "'" + row['tribunal'] + "'" + ","+ "'" + row['situacao'] + "'" +');">Atualizar</button>'
+       + ' '
+       + '<a class="btn btn-info btn-xs" href="detalhes.php?numeroProcesso=' + row['numeroProcesso'] + "&tribunal=" + row['tribunal'] + '">Detalhes</a>'
+       + ' '
+       + '<a class="btn btn-primary btn-xs" href="update.php?id=' + row['id'] + '">Editar</a>'
+       + ' '
+       + '<a class="btn btn-danger btn-xs" onClick="deleteConfirmation(' + row['id'] + ')">Deletar</a>'
+       + '</td>'
+       + '</tr>'
+       );
+    }
+    
    }
    //Implementa Search and Sort
    var oTable = $('#tab_processos').dataTable({

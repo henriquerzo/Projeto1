@@ -107,13 +107,16 @@
                 # code...
                 break;
         }
-
+        	if(count($lista_processos_pull) != 0){
 					for ($i=0; $i < count($lista_processos_pull); $i++) { 
 						echo '<tr>';
 						echo '<td>'. $lista_processos_pull[$i]->getDate() . '</td>';
 						echo '<td>'. $lista_processos_pull[$i]->getNome() . '</td>';
 						echo '</tr>';
-					}	
+					}
+			}else{
+				echo "<script> alert('Não foi possivel conectar-se ao servidor do tribunal.Verifique sua conexão de internet!') </script>";
+			}	
 				
 				
 

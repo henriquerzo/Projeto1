@@ -66,8 +66,12 @@
     <!-- Lista de processos -->
     <div class="container">
       <div id="data_ultima_atualizacao"> </div>
-      <div id="tabela_processos_usuario" class="row">  
-          <table class="table table-striped table-bordered pretty" cellpadding="0" cellspacing="0" border="0" class="display" id="tab_processos" width="100%">  
+      <div id="tabela_processos_usuario_atualizados" class="row">  
+          <table class="table table-striped table-bordered pretty" cellpadding="0" cellspacing="0" border="0" class="display" id="tab_processos_atualizados" width="100%">  
+        </table>
+      </div>
+      <div id="tabela_processos_usuario" class="row"> 
+        <table class="table table-striped table-bordered pretty" cellpadding="0" cellspacing="0" border="0" class="display" id="tab_processos" width="100%">  
         </table>
       </div>
     </div> <!-- /container -->
