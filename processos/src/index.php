@@ -52,6 +52,7 @@
             <img class="profile-img" src="https://lh5.googleusercontent.com/-b0-k99FZlyE/AAAAAAAAAAI/AAAAAAAAAAA/eu7opA4byxI/photo.jpg?sz=120"
             alt="">
             <div class="form-signin">
+              <form method="post" action="valida-login.php">
               <div id="login_content">
                 <input type="text" class="form-control" placeholder="Usuário" name="usuario" required autofocus>
                 <input type="password" class="form-control" placeholder="Senha" name="senha" required>
@@ -62,6 +63,7 @@
                   Lembrar
                 </label>
                 <span class="clearfix"></span>
+              </form>
               </div>
             </div>
           </div>

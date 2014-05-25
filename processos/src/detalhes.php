@@ -13,7 +13,11 @@
 
 	<title>Detalhes</title>
 </head>
+<?php
+include("seguranca.php"); // Inclui o arquivo com o sistema de segurança
+protegePagina(); // Chama a função que protege a página
 
+?>
 <body>
 	<!-- Menu topo -->
 	<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
@@ -25,7 +29,12 @@
 					<li><a href="contato/feedbackMail.php">Contato</a></li>
 				</ul>
 				<ul class="nav navbar-nav navbar-right">
-					<li><a href="../../control/logout.php">Sair</a></li>
+					<li class="active"><a>
+						<?php
+						echo "Olá, " . $_SESSION['usuarioNome'];
+						?>
+					</a></li>
+					<li><a href="logout.php">Sair</a></li>
 				</ul>
 			</div><!--/.nav-collapse -->
 		</div>
@@ -57,66 +66,66 @@
 			<tbody>
 				<?php
 				
-					$lista_processos_pull = array();
-					$numeroProcesso = $_REQUEST['numeroProcesso'];
-					$tribunal = $_REQUEST['tribunal'];
-			switch ($tribunal) {
-            case 'T. Superior Eleitoral':
-                include 'classes_pull/TSE_PULL.php';
-                $obj = new TSE_PULL($numeroProcesso);
-                $obj->pull();
-                $lista_processos_pull = $obj->getListaFases();
-                
-                break;
-            case 'TJ-PB':
-                include 'classes_pull/TJPB_PULL.php';
-                $obj = new TJPB_PULL($numeroProcesso);
-                $obj->pull();
-                $lista_processos_pull = $obj->getListaFases();
-                
-                break;
-            case 'S. Tribunal Federal':
-                include 'classes_pull/STF_PULL.php';
-                $obj = new STF_PULL($numeroProcesso);
-                $obj->pull();
-                $lista_processos_pull = $obj->getListaFases();
-                
-                break;
-            case 'T. Regional Federal':
-                include 'classes_pull/TRF_PULL.php';
-                $obj = new TRF_PULL($numeroProcesso);
-                $obj->pull();
-                $lista_processos_pull = $obj->getListaFases();
-                
-                break;
-            case 'T. Regional Eleitoral':
-                include 'classes_pull/TRE_PULL.php';
-                $obj = new TRE_PULL($numeroProcesso);
-                $obj->pull();
-                $lista_processos_pull = $obj->getListaFases();
-                
-                break;
-            case 'T. Regional Federal 5º Regiao':
-                include 'classes_pull/TRF_REGIAO5_PULL.php';
-                $obj = new TRF_REGIAO5_PULL($numeroProcesso);
-                $obj->pull();
-                $lista_processos_pull = $obj->getListaFases();
-                
-                break;
-            default:
+				$lista_processos_pull = array();
+				$numeroProcesso = $_REQUEST['numeroProcesso'];
+				$tribunal = $_REQUEST['tribunal'];
+				switch ($tribunal) {
+					case 'T. Superior Eleitoral':
+					include 'classes_pull/TSE_PULL.php';
+					$obj = new TSE_PULL($numeroProcesso);
+					$obj->pull();
+					$lista_processos_pull = $obj->getListaFases();
+
+					break;
+					case 'TJ-PB':
+					include 'classes_pull/TJPB_PULL.php';
+					$obj = new TJPB_PULL($numeroProcesso);
+					$obj->pull();
+					$lista_processos_pull = $obj->getListaFases();
+
+					break;
+					case 'S. Tribunal Federal':
+					include 'classes_pull/STF_PULL.php';
+					$obj = new STF_PULL($numeroProcesso);
+					$obj->pull();
+					$lista_processos_pull = $obj->getListaFases();
+
+					break;
+					case 'T. Regional Federal':
+					include 'classes_pull/TRF_PULL.php';
+					$obj = new TRF_PULL($numeroProcesso);
+					$obj->pull();
+					$lista_processos_pull = $obj->getListaFases();
+
+					break;
+					case 'T. Regional Eleitoral':
+					include 'classes_pull/TRE_PULL.php';
+					$obj = new TRE_PULL($numeroProcesso);
+					$obj->pull();
+					$lista_processos_pull = $obj->getListaFases();
+
+					break;
+					case 'T. Regional Federal 5º Regiao':
+					include 'classes_pull/TRF_REGIAO5_PULL.php';
+					$obj = new TRF_REGIAO5_PULL($numeroProcesso);
+					$obj->pull();
+					$lista_processos_pull = $obj->getListaFases();
+
+					break;
+					default:
                 # code...
-                break;
-        }
-        	if(count($lista_processos_pull) != 0){
+					break;
+				}
+				if(count($lista_processos_pull) != 0){
 					for ($i=0; $i < count($lista_processos_pull); $i++) { 
 						echo '<tr>';
 						echo '<td>'. $lista_processos_pull[$i]->getDate() . '</td>';
 						echo '<td>'. $lista_processos_pull[$i]->getNome() . '</td>';
 						echo '</tr>';
 					}
-			}else{
-				echo "<script> alert('Não foi possivel conectar-se ao servidor do tribunal.Verifique sua conexão de internet!') </script>";
-			}	
+				}else{
+					echo "<script> alert('Não foi possivel conectar-se ao servidor do tribunal.Verifique sua conexão de internet!') </script>";
+				}	
 				
 				
 

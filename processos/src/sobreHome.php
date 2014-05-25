@@ -19,6 +19,12 @@
 
 </head>
 
+<?php
+include("seguranca.php"); // Inclui o arquivo com o sistema de segurança
+protegePagina(); // Chama a função que protege a página
+
+?>
+
 <body>
   <!-- Menu topo -->
   <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
@@ -28,6 +34,14 @@
           <li><a href="home.php">Home</a></li>
           <li class="active"><a href="sobre.php">Sobre</a></li>
           <li><a href="contato/feedbackMail.php">Contato</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <li class="active"><a>
+            <?php
+            echo "Olá, " . $_SESSION['usuarioNome'];
+            ?>
+          </a></li>
+          <li><a href="logout.php">Sair</a></li>
         </ul>
       </div><!--/.nav-collapse -->
     </div>
@@ -79,12 +93,12 @@
       <li><p>José Gildo Araújo</p></li>
     </ul>
 
-      <hr>
+    <hr>
 
-      <footer>
-        <p>© UFCG 2014</p>
-      </footer>
-    </div> <!-- /container -->
+    <footer>
+      <p>© UFCG 2014</p>
+    </footer>
+  </div> <!-- /container -->
 
 
-  </body></html>
+</body></html>

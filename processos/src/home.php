@@ -23,6 +23,11 @@
   <script type="text/javascript" language="javascript" src="view/home_view.js"></script>
   <title>Gerenciador de Processos</title>
 </head>
+<?php
+include("seguranca.php"); // Inclui o arquivo com o sistema de segurança
+protegePagina(); // Chama a função que protege a página
+
+?>
 
 <body onload="run_search_processos_usuario()">
   <!-- Menu topo -->
@@ -35,6 +40,11 @@
           <li><a href="contato/feedbackMail.php">Contato</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
+          <li class="active"><a>
+            <?php
+            echo "Olá, " . $_SESSION['usuarioNome'];
+            ?>
+          </a></li>
           <li><a href="logout.php">Sair</a></li>
         </ul>
       </div><!--/.nav-collapse -->

@@ -18,6 +18,11 @@
   <title>Consulta Processos</title>
 
 </head>
+<?php
+include("seguranca.php"); // Inclui o arquivo com o sistema de segurança
+protegePagina(); // Chama a função que protege a página
+
+?>
 
 <body>
   <!-- Menu topo -->

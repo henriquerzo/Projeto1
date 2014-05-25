@@ -16,6 +16,8 @@
 
 <?php
 require 'model/database.php';
+include("seguranca.php"); // Inclui o arquivo com o sistema de segurança
+protegePagina(); // Chama a função que protege a página
 
 $id = null;
 if ( !empty($_GET['id'])) {
@@ -73,7 +75,12 @@ if ( !empty($_POST)) {
           <li><a href="contato/feedbackMail.php">Contato</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
-          <li><a href="../navbar-fixed-top/">Sair</a></li>
+          <li class="active"><a>
+            <?php
+            echo "Olá, " . $_SESSION['usuarioNome'];
+            ?>
+          </a></li>
+          <li><a href="logout.php">Sair</a></li>
         </ul>
       </div><!--/.nav-collapse -->
     </div>

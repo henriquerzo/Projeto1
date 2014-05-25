@@ -1,6 +1,8 @@
 <?php
      
     include 'database.php';
+    include("../seguranca.php"); // Inclui o arquivo com o sistema de segurança
+    protegePagina(); // Chama a função que protege a página
  
     if ( !empty($_POST)) {
         // keep track validation errors
@@ -78,9 +80,9 @@
             if ($valid) {
                 $pdo = Database::connect();
                 $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-                $sql = "INSERT INTO processos (numeroProcesso, tribunal, situacao, cliente, observacoes, status) values(?, ?, ?, ?, ?, ?)";
+                $sql = "INSERT INTO processos (numeroProcesso, tribunal, situacao, cliente, observacoes, status, usuario_id) values(?, ?, ?, ?, ?, ?, ?)";
                 $q = $pdo->prepare($sql);
-                $q->execute(array($numeroProcesso, $tribunal, utf8_encode($situacao), $cliente, $observacoes,'1'));
+                $q->execute(array($numeroProcesso, $tribunal, utf8_encode($situacao), $cliente, $observacoes,'1', $_SESSION['usuarioID']));
                 Database::disconnect();
                 array_push($array_saida, "Processo cadastrado!");
             }

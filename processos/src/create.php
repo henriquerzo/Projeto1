@@ -10,14 +10,19 @@
   <link   href="css/bootstrap.min.css" rel="stylesheet">
   <script src="controller/create_controller.js"></script>
   <script src="view/create_view.js"></script>
+  <script language="JavaScript" type="text/javascript" src="js/jquery.js"></script>
   <script src="js/bootstrap.min.js"></script>
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
   <script src="model/database.php"></script>
-  <script language="JavaScript" type="text/javascript" src="js/jquery.js"></script>
   <script type="text/javascript" src="js/jquery-1.2.6.pack.js"></script>
   <script type="text/javascript" src="js/jquery.maskedinput-1.1.4.pack.js"/></script>
   <title>Gerenciador de Processos</title>
 </head>
+<?php
+include("seguranca.php"); // Inclui o arquivo com o sistema de segurança
+protegePagina(); // Chama a função que protege a página
+
+?>
 
 <body>
 
@@ -33,7 +38,12 @@
           <li><a href="contato/feedbackMail.php">Contato</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
-          <li><a href="../navbar-fixed-top/">Sair</a></li>
+          <li class="active"><a>
+            <?php
+            echo "Olá, " . $_SESSION['usuarioNome'];
+            ?>
+          </a></li>
+          <li><a href="logout.php">Sair</a></li>
         </ul>
       </div><!--/.nav-collapse -->
     </div>
