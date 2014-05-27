@@ -10,6 +10,7 @@
       + '<tr>'
       + '<th style="cursor: pointer; width: 140px;" >Processo</th>'
       + '<th style="cursor: pointer; width: 140px;" >Tribunal</th>'
+      + '<th style="cursor: pointer; width: 140px;" >Data</th>'
       + '<th style="cursor: pointer; width: 289px;" >Situação</th>'
       + '<th style="cursor: pointer; width: 140px;" >Cliente</th>'
       + '<th>Ações</th>'
@@ -23,6 +24,8 @@
     for (var i = 0; i < table_array.length; i++) {
 
      row = table_array[i];
+     var data = row['data'];
+     var nova_data = data.split("-").reverse().join("/");
 
      if(row['status'] == "1"){
 
@@ -31,6 +34,7 @@
       + '<tr>'
       + '<th style="cursor: pointer; width: 140px;" >Processo</th>'
       + '<th style="cursor: pointer; width: 140px;" >Tribunal</th>'
+      + '<th style="cursor: pointer; width: 140px;" >Data</th>'
       + '<th style="cursor: pointer; width: 289px;" >Situação</th>'
       + '<th style="cursor: pointer; width: 140px;" >Cliente</th>'
       + '<th>Ações</th>'
@@ -44,6 +48,7 @@
       tab_body_atualizados.append('<tr class="success">'
         + '<td>' + row['numeroProcesso'] + '</td>'
         + '<td>' + row['tribunal'] + '</td>'
+        + '<td>' + nova_data + '</td>'
         + '<td>' + row['situacao'] + '</td>'
         + '<td>' + row['cliente'] + '</td>'
         + '<td width=250>'
@@ -64,6 +69,7 @@
       tab_body.append('<tr>'
         + '<td>' + row['numeroProcesso'] + '</td>'
         + '<td>' + row['tribunal'] + '</td>'
+        + '<td>' + nova_data + '</td>'
         + '<td>' + row['situacao'] + '</td>'
         + '<td>' + row['cliente'] + '</td>'
         + '<td width=250>'

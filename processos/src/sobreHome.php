@@ -38,7 +38,7 @@ protegePagina(); // Chama a função que protege a página
         <ul class="nav navbar-nav navbar-right">
           <li class="active"><a>
             <?php
-            echo "Olá, " . $_SESSION['usuarioNome'];
+            echo "Olá, " . utf8_encode($_SESSION['usuarioNome']);
             ?>
           </a></li>
           <li><a href="logout.php">Sair</a></li>

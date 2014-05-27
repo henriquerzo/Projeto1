@@ -70,6 +70,9 @@
             
         }else{
             $situacao = $lista_processos_pull[0]->getNome();
+            $data = $lista_processos_pull[0]->getDate();
+            $data = str_replace('/', '-', $data);
+            $data = date('Y-m-d', strtotime($data));
             $valid = true;
             if (empty($cliente)) {
                 $clienteError = 'É preciso adicionar um cliente';
@@ -80,9 +83,9 @@
             if ($valid) {
                 $pdo = Database::connect();
                 $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-                $sql = "INSERT INTO processos (numeroProcesso, tribunal, situacao, cliente, observacoes, status, usuario_id) values(?, ?, ?, ?, ?, ?, ?)";
+                $sql = "INSERT INTO processos (numeroProcesso, tribunal, data, situacao, cliente, observacoes, status, usuario_id) values(?, ?, ?, ?, ?, ?, ?, ?)";
                 $q = $pdo->prepare($sql);
-                $q->execute(array($numeroProcesso, $tribunal, utf8_encode($situacao), $cliente, $observacoes,'1', $_SESSION['usuarioID']));
+                $q->execute(array($numeroProcesso, $tribunal, $data, utf8_encode($situacao), $cliente, $observacoes,'1', $_SESSION['usuarioID']));
                 Database::disconnect();
                 array_push($array_saida, "Processo cadastrado!");
             }
