@@ -11,7 +11,7 @@ $_SG['validaSempre'] = true;       // Deseja validar o usuário e a senha a cada
 
 $_SG['servidor'] = '127.0.0.1';    // Servidor MySQL
 $_SG['usuario'] = 'root';          // Usuário MySQL
-$_SG['senha'] = 'root';            // Senha MySQL
+$_SG['senha'] = '';            // Senha MySQL
 $_SG['banco'] = 'projeto1bd';      // Banco de dados MySQL
 
 $_SG['paginaLogin'] = 'index.php'; // Página de login
@@ -70,9 +70,8 @@ $resultado = mysqli_fetch_assoc($query);
 
 // Verifica se encontrou algum registro
 if (empty($resultado)) {
-	echo($senha);
 // Nenhum registro foi encontrado => o usuário é inválido
-	return false;
+	return 0;
 
 } else {
 // O registro foi encontrado => o usuário é valido
@@ -80,6 +79,7 @@ if (empty($resultado)) {
 // Definimos dois valores na sessão com os dados do usuário
 $_SESSION['usuarioID'] = $resultado['id']; // Pega o valor da coluna 'id do registro encontrado no MySQL
 $_SESSION['usuarioNome'] = $resultado['nome']; // Pega o valor da coluna 'nome' do registro encontrado no MySQL
+$_SESSION['usuarioNivel'] = $resultado['nivel']; // Pega o valor da coluna 'nivel' do registro encontrado no MySQL
 
 // Verifica a opção se sempre validar o login
 if ($_SG['validaSempre'] == true) {
@@ -88,7 +88,8 @@ if ($_SG['validaSempre'] == true) {
 	$_SESSION['usuarioSenha'] = $senha;
 }
 
-return true;
+//Retorna o nivel do usuario para indicar qual pagina ele tem acesso
+return $_SESSION['usuarioNivel'];
 }
 }
 
@@ -114,13 +115,25 @@ function protegePagina() {
 }
 
 /**
+* Função que protege uma página do admin
+*/
+function protegePaginaAdmin() {
+	protegePagina();
+	if ($_SESSION['usuarioNivel'] != 2) {
+		expulsaVisitante();
+	}
+}
+
+
+
+/**
 * Função para expulsar um visitante
 */
 function expulsaVisitante() {
 	global $_SG;
 
 // Remove as variáveis da sessão (caso elas existam)
-	unset($_SESSION['usuarioID'], $_SESSION['usuarioNome'], $_SESSION['usuarioLogin'], $_SESSION['usuarioSenha']);
+	unset($_SESSION['usuarioID'], $_SESSION['usuarioNome'], $_SESSION['usuarioLogin'], $_SESSION['usuarioSenha'], $_SESSION['usuarioNivel']);
 
 // Manda pra tela de login
 	header("Location: ".$_SG['paginaLogin']);
