@@ -34,12 +34,12 @@ protegePaginaAdmin(); // Chama a função que protege a página
     <div class="container">
       <div class="navbar-collapse collapse">
         <ul class="nav navbar-nav">
-          <li class="active"><a href="home.php">Home</a></li>
+          <li class="active"><a href="admin-home.php">Home</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
           <li class="active"><a>
             <?php
-            echo "Olá, " . $_SESSION['usuarioNome'];
+            echo "Olá, " . utf8_encode($_SESSION['usuarioNome']);
             ?>
           </a></li>
           <li><a href="logout.php">Sair</a></li>
