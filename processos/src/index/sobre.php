@@ -3,27 +3,17 @@
 <head>
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
 
-  <link href="css/bootstrap.min.css" rel="stylesheet">
-  <link href="css/index.css" rel="stylesheet">
+  <link href="../css/bootstrap.min.css" rel="stylesheet">
 
 
-  <script type="text/javascript" src="js/bootstrap.min.js"></script>
-  <script src="../libs/bootstrap/js/bootstrap.js"></script>
-
-  <script src="controller/javascriptfunctions.js"></script>
+  <script type="text/javascript" src="../js/bootstrap.min.js"></script>
   
   
 
   <meta charset="UTF-8">
-  <title>Consulta Processos</title>
+  <title>Gerenciador de Processos</title>
 
 </head>
-
-<?php
-include("seguranca.php"); // Inclui o arquivo com o sistema de segurança
-protegePagina(); // Chama a função que protege a página
-
-?>
 
 <body>
   <!-- Menu topo -->
@@ -31,17 +21,9 @@ protegePagina(); // Chama a função que protege a página
     <div class="container">
       <div class="navbar-collapse collapse">
         <ul class="nav navbar-nav">
-          <li><a href="home.php">Home</a></li>
+          <li><a href="../index.php">Inicio</a></li>
           <li class="active"><a href="sobre.php">Sobre</a></li>
-          <li><a href="contato/feedbackMail.php">Contato</a></li>
-        </ul>
-        <ul class="nav navbar-nav navbar-right">
-          <li class="active"><a>
-            <?php
-            echo "Olá, " . utf8_encode($_SESSION['usuarioNome']);
-            ?>
-          </a></li>
-          <li><a href="logout.php">Sair</a></li>
+          <li><a href="contato.php">Contato</a></li>
         </ul>
       </div><!--/.nav-collapse -->
     </div>
@@ -72,7 +54,7 @@ protegePagina(); // Chama a função que protege a página
 
     <hr>
 
-    <p class="text-left"><b>Esse sistema foi densenvolvido por alunos da UFCG para a disciplina Projeto 1</b></p>
+    <p class="text-left"><b>Esse sistema foi densenvolvido por alunos da UFCG para as disciplinas Projeto 1 e Projeto 2</b></p>
     <p class="text-left"><b>Alunos desenvolvedores:</b></p>
 
     <ul>
@@ -93,12 +75,12 @@ protegePagina(); // Chama a função que protege a página
       <li><p>José Gildo Araújo</p></li>
     </ul>
 
-    <hr>
+      <hr>
 
-    <footer>
-      <p>© UFCG 2014</p>
-    </footer>
-  </div> <!-- /container -->
+      <footer>
+        <p>© UFCG 2014</p>
+      </footer>
+    </div> <!-- /container -->
 
 
-</body></html>
+  </body></html>

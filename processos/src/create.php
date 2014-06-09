@@ -34,8 +34,8 @@ protegePagina(); // Chama a função que protege a página
       <div class="navbar-collapse collapse">
         <ul class="nav navbar-nav">
           <li><a href="home.php">Home</a></li>
-          <li><a href="sobreHome.php">Sobre</a></li>
-          <li><a href="contato/feedbackMail.php">Contato</a></li>
+          <li><a href="home/sobre.php">Sobre</a></li>
+          <li><a href="home/contato.php">Contato</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
           <li class="active"><a>

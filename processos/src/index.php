@@ -25,8 +25,8 @@
     <div class="container">
       <div class="navbar-collapse collapse">
         <ul class="nav navbar-nav">
-          <li><a href="sobre.php">Sobre</a></li>
-          <li><a href="contato/feedbackMail.php">Contato</a></li>
+          <li><a href="index/sobre.php">Sobre</a></li>
+          <li><a href="index/contato.php">Contato</a></li>
         </ul>
       </div><!--/.nav-collapse -->
     </div>
@@ -49,7 +49,7 @@
         <div class="col-sm-6 col-md-4 col-md-offset-4">
           <h1 class="text-center login-title">Entre para acessar seus processos</h1>
           <div class="account-wall">
-            <img class="profile-img" src="https://lh5.googleusercontent.com/-b0-k99FZlyE/AAAAAAAAAAI/AAAAAAAAAAA/eu7opA4byxI/photo.jpg?sz=120"
+            <img class="profile-img" src="images/photo.png"
             alt="">
             <div class="form-signin">
               <form method="post" action="valida-login.php">
