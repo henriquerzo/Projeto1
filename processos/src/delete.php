@@ -2,9 +2,6 @@
     require 'model/database.php';
     $id = 0;
      
-    if ( !empty($_GET['id'])) {
-        $id = $_REQUEST['id'];
-    }
      
     if ( !empty($_POST)) {
         // keep track post values
@@ -12,12 +9,10 @@
          
         // delete data
         $pdo = Database::connect();
-        $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        $sql = "DELETE FROM processos  WHERE id = ?";
-        $q = $pdo->prepare($sql);
-        $q->execute(array($id));
+        $sql = 'DELETE FROM processos  WHERE id=' . "'" . $id . "'";
+        $pdo->query($sql);
         Database::disconnect();
-        header("Location: home.php");
+        //header("Location: home.php");
          
     }
 ?>

@@ -18,6 +18,7 @@ CREATE TABLE  PROCESSOS (
 	id INT NOT NULL AUTO_INCREMENT PRIMARY KEY ,
 	numeroProcesso VARCHAR( 50 ) ,
 	tribunal VARCHAR( 100 ) ,
+	data DATE ,
 	situacao VARCHAR(100) ,
 	cliente VARCHAR( 100 ) ,
 	observacoes VARCHAR( 255 ) ,

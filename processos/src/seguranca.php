@@ -31,6 +31,10 @@ if ($_SG['conectaServidor'] == true) {
 	$_SG['link'] = mysqli_connect($_SG['servidor'], $_SG['usuario'], $_SG['senha'], $_SG['banco']);
 }
 
+//if (mysqli_connect_errno()){
+  //exit("Script parou!!");
+//}
+
 
 
 // Verifica se precisa iniciar a sessão
@@ -85,7 +89,7 @@ $_SESSION['usuarioNivel'] = $resultado['nivel']; // Pega o valor da coluna 'nive
 if ($_SG['validaSempre'] == true) {
 // Definimos dois valores na sessão com os dados do login
 	$_SESSION['usuarioLogin'] = $usuario;
-	$_SESSION['usuarioSenha'] = $senha;
+	$_SESSION['usuarioSenha'] = $senha; 
 }
 
 //Retorna o nivel do usuario para indicar qual pagina ele tem acesso

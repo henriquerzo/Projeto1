@@ -5,7 +5,7 @@
       return false;
     }
 
-    var table = $("#tab_processos");
+     var table = $("#tab_processos");
     table.append('<thead>'
       + '<tr>'
       + '<th style="cursor: pointer; width: 140px;" >Processo</th>'
@@ -19,17 +19,7 @@
       + '<tbody id="tab_body"> </tbody>'
       );
 
-    var tab_body = $("#tab_body");
-
-    for (var i = 0; i < table_array.length; i++) {
-
-     row = table_array[i];
-     var data = row['data'];
-     var nova_data = data.split("-").reverse().join("/");
-
-     if(row['status'] == "1"){
-
-      var table_atualizados = $("#tab_processos_atualizados");
+    var table_atualizados = $("#tab_processos_atualizados");
       table_atualizados.append('<thead>'
       + '<tr>'
       + '<th style="cursor: pointer; width: 140px;" >Processo</th>'
@@ -43,6 +33,17 @@
       + '<tbody id="tab_body_atualizados"> </tbody>'
       );
 
+
+
+    for (var i = 0; i < table_array.length; i++) {
+
+     row = table_array[i];
+     var data = row['data'];
+     var nova_data = data.split("-").reverse().join("/");
+
+     if(row['status'] == "1"){
+
+      
       var tab_body_atualizados = $("#tab_body_atualizados");
       
       tab_body_atualizados.append('<tr class="success">'
@@ -65,7 +66,12 @@
        + '</td>'
        + '</tr>'
        );
-    }else{
+
+      filtro("#tab_processos_atualizados");
+    }else if (row['status'] == "0"){
+     
+    var tab_body = $("#tab_body");
+
       tab_body.append('<tr>'
         + '<td>' + row['numeroProcesso'] + '</td>'
         + '<td>' + row['tribunal'] + '</td>'
@@ -84,11 +90,17 @@
        + '</td>'
        + '</tr>'
        );
+
+      filtro('#tab_processos');
     }
     
    }
    //Implementa Search and Sort
-   var oTable = $('#tab_processos').dataTable({
+   
+}
+
+function filtro(tabela){
+  var oTable = $(tabela).dataTable({
     'bPaginate':false,
     'bInfo':false,
     'bFilter': true,
@@ -113,19 +125,25 @@
 
 function show_data_ultima_atualizacao(data_atualizacao){
 
-  $("#data_ultima_atualizacao").html("Ultima atualização: " + data_atualizacao[0]);
+  $("#data_ultima_atualizacao").html("Processos Atualizados");
   return false;
 }
 
 function deleteConfirmation(id){
-  var x;
+
   var r=confirm("Você tem certeza que deseja excluir o processo?");
   if (r==true) {
+
     $.ajax({
-      type: "POST",
+      type: 'POST',
+      data: {"id": id},
       url: "delete.php",
-      data: {"id": id}
-    })
-    location.reload();
+      async: true,
+      success: function(response) {
+        location.reload();
+      }
+    });
   }
+  return false;
+    
 }

@@ -3,7 +3,7 @@
     include 'database.php';
     include("../seguranca.php"); // Inclui o arquivo com o sistema de segurança
     protegePagina(); // Chama a função que protege a página
- 
+    
     if ( !empty($_POST)) {
         // keep track validation errors
         $numeroProcessoError = null;

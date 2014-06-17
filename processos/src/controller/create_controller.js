@@ -1,5 +1,5 @@
 function registra_processo(){
-
+	
 	var numero_processo = document.getElementById('campo_numero_processo').value;
 	var nome_cliente = document.getElementById('cliente').value;
 	var texto_observacao = document.getElementById('observacoes').value;
