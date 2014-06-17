@@ -18,26 +18,24 @@
   <script type="text/javascript" src="js/bootstrap.min.js"></script>
   <script type="text/javascript" src="js/bootstrap.js"></script>
   
-  <script type="text/javascript" language="javascript" src="controller/home_controller.js"></script>
-  <script type="text/javascript" language="javascript" src="controller/detalhes_controller.js"></script>
-  <script type="text/javascript" language="javascript" src="view/home_view.js"></script>
+  <script type="text/javascript" language="javascript" src="controller/admin_contato_controller.js"></script>
+  <script type="text/javascript" language="javascript" src="view/admin_contato_view.js"></script>
   <title>Gerenciador de Processos</title>
 </head>
 <?php
 include("seguranca.php"); // Inclui o arquivo com o sistema de segurança
-protegePagina(); // Chama a função que protege a página
+protegePaginaAdmin(); // Chama a função que protege a página
 
 ?>
 
-<body onload="run_search_processos_usuario()">
+<body onload="run_search_mensagens()">
   <!-- Menu topo -->
   <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
     <div class="container">
       <div class="navbar-collapse collapse">
         <ul class="nav navbar-nav">
-          <li class="active"><a href="home.php">Home</a></li>
-          <li><a href="home/sobre.php">Sobre</a></li>
-          <li><a href="home/contato.php">Contato</a></li>
+          <li><a href="admin-home.php">Home</a></li>
+          <li class="active"><a href="admin-contato.php">Contato</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
           <li class="active"><a>
@@ -57,7 +55,7 @@ protegePagina(); // Chama a função que protege a página
   <div class="jumbotron">
     <div class="container">
       <h1>Gerenciador de Processos</h1>
-      <p>Gerencie e acompanhe a situação dos seus processos</p>
+      <p>Gerencie as mensagens dos usuários</p>
     </div>
   </div>
 
@@ -67,28 +65,18 @@ protegePagina(); // Chama a função que protege a página
     <div class="page-header container theme-showcase">
      <form class="navbar-form navbar-right">
       <input type="text" class="form-control" placeholder="Pesquisar..." id="seach_field">
-      <a href="create.php" class="btn btn-success">+ Adicionar Processo</a>
     </form>
   </div>
 
 
   <div class="container">
     <!-- Lista de processos -->
-    <div id="data_ultima_atualizacao"> </div>
-    <div class="container">
-      <div id="tabela_processos_usuario_atualizados" class="row">  
-          <table class="table table-striped table-bordered pretty" cellpadding="0" cellspacing="0" border="0" class="display" id="tab_processos_atualizados" width="100%">  
-        </table>
-      </div>
-    </div> <!-- /container -->
-    <div> Processos Armazenados</div>
     <div class="container">
       <div id="tabela_processos_usuario" class="row"> 
         <table class="table table-striped table-bordered pretty" cellpadding="0" cellspacing="0" border="0" class="display" id="tab_processos" width="100%">  
         </table>
       </div>
-
-    </div>
+    </div> <!-- /container -->
 
     <hr>
 

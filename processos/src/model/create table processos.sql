@@ -25,10 +25,9 @@ CREATE TABLE  PROCESSOS (
 	status CHAR ,
 	usuario_id INT(11) ,
 	FOREIGN KEY (usuario_id) REFERENCES USUARIOS(id)
-	)
+);
 
-#241092000
-
+DROP TABLE IF EXISTS `fases`;
 CREATE TABLE FASES(
 	id_processo INT,
 	fase VARCHAR(100),
@@ -36,11 +35,20 @@ CREATE TABLE FASES(
 	CONSTRAINT chave_primaria PRIMARY KEY (id_processo, fase)
 );
 
+DROP TABLE IF EXISTS `cliente`;
 CREATE TABLE CLIENTE (
 	id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
 	nome VARCHAR(50),
 	usuario_login VARCHAR(20),
 	senha VARCHAR(8)
+);
+
+DROP TABLE IF EXISTS `mensagem`;
+CREATE TABLE  MENSAGEM (
+	`id` INT(11) UNSIGNED NOT NULL AUTO_INCREMENT,
+	`email` VARCHAR( 100 ) NOT NULL ,
+	`mensagem` VARCHAR( 255 ) NOT NULL ,
+	PRIMARY KEY (`id`)
 );
 
 
