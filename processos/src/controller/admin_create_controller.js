@@ -9,7 +9,7 @@ function registra_usuario(){
 	$.ajax({
 		type: 'POST',
 		dataType: 'json',
-		url: '../model/model_admin_salva_usuario.php',
+		url: 'model/model_admin_salva_usuario.php',
 		data:{'usuario':usuario,'senha':senha,'nome':nome,'email':email, 'nivel':nivel, 'ativo':ativo},
 		async: true,
 		success: function(response) {

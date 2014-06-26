@@ -1,7 +1,7 @@
   function show_usuarios(table_array){
 
     if (table_array.length <= 0){
-      $("#tabela_processos_usuario").html("<em>Nenhum usuário cadastrado.</em>");
+      $("#tabela_processos_usuario").html("<em>Nenhum processo cadastrado.</em>");
       return false;
     }
 
