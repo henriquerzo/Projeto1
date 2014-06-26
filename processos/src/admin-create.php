@@ -35,6 +35,7 @@ protegePaginaAdmin(); // Chama a função que protege a página
       <div class="navbar-collapse collapse">
         <ul class="nav navbar-nav">
           <li><a href="admin-home.php">Home</a></li>
+        <li><a href="admin-contato.php">Contato</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
           <li class="active"><a>
