@@ -11,10 +11,10 @@
 
   <link   href="css/bootstrap.min.css" rel="stylesheet">
   <link   href="css/home.css" rel="stylesheet">
-  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
-  <!-- <script type="text/javascript" language="javascript" src="js/jquery.js"></script>
+
+  <script type="text/javascript" language="javascript" src="js/jquery.js"></script>
   <script type="text/javascript" language="javascript" src="js/jquery.dataTables.js"></script> 
-	-->
+
   <script type="text/javascript" src="js/bootstrap.min.js"></script>
   <script type="text/javascript" src="js/bootstrap.js"></script>
   
@@ -36,8 +36,8 @@ protegePagina(); // Chama a função que protege a página
       <div class="navbar-collapse collapse">
         <ul class="nav navbar-nav">
           <li class="active"><a href="home.php">Home</a></li>
-          <li><a href="sobreHome.php">Sobre</a></li>
-          <li><a href="contato/feedbackMail.php">Contato</a></li>
+          <li><a href="home/sobre.php">Sobre</a></li>
+          <li><a href="home/contato.php">Contato</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
           <li class="active"><a>
