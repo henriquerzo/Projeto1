@@ -12,8 +12,10 @@
   <link   href="css/bootstrap.min.css" rel="stylesheet">
   <link   href="css/home.css" rel="stylesheet">
 
-  <script type="text/javascript" language="javascript" src="js/jquery.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+  <!-- <script type="text/javascript" language="javascript" src="js/jquery.js"></script>
   <script type="text/javascript" language="javascript" src="js/jquery.dataTables.js"></script> 
+  -->
 
   <script type="text/javascript" src="js/bootstrap.min.js"></script>
   <script type="text/javascript" src="js/bootstrap.js"></script>
